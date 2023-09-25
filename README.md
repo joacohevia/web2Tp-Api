@@ -7,5 +7,5 @@
 ## Descripcion:
   La idea es crear una pagina en la que el usuario pueda realizar su pedido online,ver el estado y que dicho pedido llegue a su domicilio
 ## DER:
-  ![Diagrama de entidad relacion](TPespecial/Web2TP/DiagramaTPespecial.png)
+  ![Diagrama de entidad relacion](https://github.com/joacohevia/Web2TP/blob/main/Diagrama%20TP%20especial.drawio.png)
 
