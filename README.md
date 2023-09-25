@@ -5,5 +5,5 @@
 ## Tematica:
   Pagina de ropa
 ## Descripcion:
-  La idea es crear una pagina en la que se pueda visulizar prendas de ropa de todo tipo y poder comprar online
+  La idea es crear una pagina en la que el usuario pueda realizar su pedido online,ver el estado y que dicho pedido llegue a su domicilio
 ## DER:
