@@ -9,6 +9,5 @@
 ## DER:
   ![Diagrama de entidad relacion](https://github.com/joacohevia/Web2TP/blob/main/Diagrama%20TP%20especial.drawio.png)
 ## .SQL:
-![Tabla de Pedidos](https://github.com/joacohevia/Web2TP/blob/main/pedidos.sql)
-![Tabla de Productos](https://github.com/joacohevia/Web2TP/blob/main/productos.sql)
-![Tabla de Usuarios](https://github.com/joacohevia/Web2TP/blob/main/usuarios.sql)
+![Tablas](https://github.com/joacohevia/Web2TP/blob/main/pagina_ropa.sql)
+
