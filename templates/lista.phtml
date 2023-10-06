@@ -1,0 +1,29 @@
+<?php
+      function seeTask($tasks) {
+        require 'templates/header.phtml';        
+        ?>    
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Usuario Numero</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Ciudad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($tasks as $task) { ?>      
+                    <tr>
+                        <td><?php echo $task->IDUsuario; ?></td>
+                        <td><?php echo $task->Nombre; ?></td>
+                        <td><?php echo $task->Apellido; ?></td>
+                        <td><?php echo $task->Ciudad; ?></td>
+                        <td><a href="listaTotal/<?php echo $task->IDUsuario; ?>" class="btn btn-primary">Ver mas</a></td>
+                    </tr>      
+                <?php } ?>
+            </tbody>
+        </table>
+
+        <?php
+        require 'templates/footer.phtml';
+    }
