@@ -1,5 +1,6 @@
 <?php
 require_once 'app/Controllers/TaskController.php';
+require_once 'app/Controllers/AuthController.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -21,6 +22,10 @@ switch ($params[0]) {
     case 'listaTotal':
         $controller = new taskController();
         $controller->allTasks($params[1]);
+        break;
+    case 'login':
+        $controller = new AuthController();
+        $controller->showLogin();
         break;
     default: 
         $controller = new taskController();
