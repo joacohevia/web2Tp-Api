@@ -8,7 +8,7 @@
     
         function __construct() {
              // verifico logueado
-            AuthHelper::verify();
+            
             $this->model = new taskModel();//dentro de model crea..
             $this->view = new taskView();
         }
@@ -25,8 +25,27 @@
 
             $this->view->showAlltable($ListT);
         }
-        //esta bien?
-        function errorTask() {
-            $this->view->showError();
+
+        function seeCategories() {
+            $productos = $this->model->getProductos();
+
+            $this->view->seeProductos($productos);
         }
+
+        function seachCategories() {
+            $categoria = $_POST['categoria'];
+            /* se valida? if (empty($categoria)) {
+                $this->view->showError("Campo incompleto");
+                return;
+            }*/
+            $productos = $this->model->seachProductos($categoria);
+            if ($productos) {
+                header('Location: ' . BASE_URL);//como muestro la loc
+            }
+            else {
+                $this->view->showError("No se encontro producto");
+            }
+            
+        }
+        
     }

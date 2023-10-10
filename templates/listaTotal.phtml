@@ -1,5 +1,4 @@
 <?php
-      function AllTable($ListT) {
         require 'templates/header.phtml';        
         ?>    
         <table class="table table-striped">
@@ -8,14 +7,13 @@
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Ciudad</th>
-                    <th>Calle</th>
-                    <th>Codigo</th>
                     <th>Correo</th>
                     <th>Telefono</th>
                     <th>Estado</th>
                     <th>Fecha</th>
                     <th>Especificaciones</th>
                     <th>Producto</th>
+                    <th>Cantidad</th>
                     <th>Precio</th>
                 </tr>
             </thead>
@@ -25,15 +23,15 @@
                         <td><?php echo $task->Nombre; ?></td>
                         <td><?php echo $task->Apellido; ?></td>
                         <td><?php echo $task->Ciudad; ?></td>
-                        <td><?php echo $task->Calle; ?></td>
-                        <td><?php echo $task->CP; ?></td>
                         <td><?php echo $task->CorreoElectronico; ?></td>
                         <td><?php echo $task->Telefono; ?></td>
                         <td><?php echo $task->EstadoPedido; ?></td>
                         <td><?php echo $task->FechaEnvio; ?></td>
                         <td><?php echo $task->Especificaciones; ?></td>
                         <td><?php echo $task->TipoProducto; ?></td>
+                        <td><?php echo $task->Cantidad ?></td>
                         <td><?php echo $task->Precio; ?></td>
+                        <td><a href="listar" class="btn btn-primary">Volver</a></td>
                     </tr>      
                 <?php } ?>
             </tbody>
@@ -41,4 +39,4 @@
 
         <?php
         require 'templates/footer.phtml';
-    }
+    

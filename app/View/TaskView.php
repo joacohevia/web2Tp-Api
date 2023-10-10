@@ -1,16 +1,22 @@
 <?php
-include 'templates/lista.phtml';
-include 'templates/listaTotal.phtml';
+
     class taskView {
         function showtask($tasks) {
-            seeTask($tasks);
+            $count = count($tasks);
+            include_once 'templates/lista.phtml';
         }
         
         function showAlltable($ListT) {
-            AllTable($ListT);
+            $count = count($ListT);
+            include_once 'templates/listaTotal.phtml';
         }
 
-        function showError() {
-            echo "<h1> Error view</h1>";
+        function showError($error) {
+            include_once 'templates/Error.phtml';
+        }
+
+        function seeProductos($productos) {
+            $count = count($productos);
+            include_once 'templates/list.categories.phtml';
         }
     }
