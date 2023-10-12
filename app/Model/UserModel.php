@@ -9,7 +9,7 @@
         }
 
         function getTasks() {
-            $query = $this->db->prepare('SELECT * FROM usuarios');
+            $query = $this->db->prepare('SELECT * FROM producto');
             $query->execute();
             // $tasks es un arreglo de tareas
             $tasks = $query->fetchAll(PDO::FETCH_OBJ);

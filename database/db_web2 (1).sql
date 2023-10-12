@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-09-2023 a las 16:04:17
+-- Tiempo de generación: 12-10-2023 a las 16:46:41
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `pagina ropa`
+-- Base de datos: `db_web2`
 --
 
 -- --------------------------------------------------------
@@ -29,10 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `pedidos` (
   `IDPedido` int(11) NOT NULL,
-  `IDUsuario` int(11) DEFAULT NULL,
   `IDProducto` int(11) DEFAULT NULL,
-  `EstadoPedido` varchar(20) DEFAULT NULL,
-  `FechaEnvio` date DEFAULT NULL
+  `Nombre` varchar(45) DEFAULT NULL,
+  `Ciudad` varchar(45) DEFAULT NULL,
+  `Direccion` varchar(45) DEFAULT NULL,
+  `Fecha` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -43,9 +44,9 @@ CREATE TABLE `pedidos` (
 
 CREATE TABLE `productos` (
   `IDProducto` int(11) NOT NULL,
-  `Especificaciones` varchar(100) DEFAULT NULL,
-  `TipoProducto` varchar(50) NOT NULL,
-  `Precio` decimal(10,2) NOT NULL
+  `Tipo` varchar(45) DEFAULT NULL,
+  `Talle` varchar(45) DEFAULT NULL,
+  `Precio` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -56,13 +57,8 @@ CREATE TABLE `productos` (
 
 CREATE TABLE `usuarios` (
   `IDUsuario` int(11) NOT NULL,
-  `Nombre` varchar(50) NOT NULL,
-  `Apellido` varchar(50) NOT NULL,
-  `Ciudad` varchar(50) DEFAULT NULL,
-  `Calle` varchar(50) DEFAULT NULL,
-  `CP` varchar(50) DEFAULT NULL,
-  `CorreoElectronico` varchar(100) NOT NULL,
-  `Telefono` varchar(15) DEFAULT NULL
+  `Correo` varchar(45) NOT NULL,
+  `Password` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -74,7 +70,7 @@ CREATE TABLE `usuarios` (
 --
 ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`IDPedido`),
-  ADD KEY `IDUsuario` (`IDUsuario`),
+  ADD KEY `IDUsuario` (`IDProducto`),
   ADD KEY `IDProducto` (`IDProducto`);
 
 --
@@ -87,8 +83,7 @@ ALTER TABLE `productos`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`IDUsuario`),
-  ADD UNIQUE KEY `CorreoElectronico` (`CorreoElectronico`);
+  ADD PRIMARY KEY (`IDUsuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -98,13 +93,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `IDPedido` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `IDProducto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -120,8 +115,7 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`IDUsuario`) REFERENCES `usuarios` (`IDUsuario`),
-  ADD CONSTRAINT `pedidos_ibfk_2` FOREIGN KEY (`IDProducto`) REFERENCES `productos` (`IDProducto`);
+  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`IDProducto`) REFERENCES `productos` (`IDProducto`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
