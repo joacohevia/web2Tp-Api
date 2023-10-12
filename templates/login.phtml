@@ -1,7 +1,7 @@
 <?php require_once './templates/header.phtml' ?>
 
 <div class="mt-5 w-25 mx-auto">
-    <form method="POST" action="login">
+    <form method="POST" action="auth">
         <div class="row">
             <div class="col-md-12">
                 <label for="email">Email</label>
@@ -13,11 +13,13 @@
                 <div id="emailHelp" class="form-text">Mínimo 4 caracteres</div>
             </div>
         </div>
+
         <?php if ($error) {  ?>
             <div class='alert alert-danger' role='alert'>
                 <?= $error ?>
             </div> 
         <?php } ?>
+        
         <button type="submit" class="btn btn-primary mt-3">Ingresar</button>
     </form>
 </div>

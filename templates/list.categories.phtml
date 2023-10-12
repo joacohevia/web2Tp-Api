@@ -1,36 +1,24 @@
 <?php
         require 'templates/header.phtml';        
         ?>
-    <form action="buscarCat" method="POST"> 
-        <div class="mb-3">
-            <label for="categoria" class="form-label">Seleccione un producto:</label>
-            <select class="col-md-2 form-select form-select-sm" id="categoria" name="categoria">
-
-                <option value="Remera">Remeras</option>
-                <option value="Pantalone">Pantalones</option>
-                <option value="Buzo">Buzos</option>
-                <option value="Campera">Camperas</option>
-                <option value="Zapatilla">Zapatillas</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Ver producto</button>
-    </form>
-
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Producto</th>
+                    <th>Fecha</th>
                     <th>Especificaciones</th>
-                    <th>Cantidad</th>
+                    <th>Estado</th>
                     <th>Precio</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($productos as $producto) { ?>      
                     <tr>
-                        <td><?php echo $producto->TipoProducto; ?></td>
+                    <td><a href="categoriaId?id=<?php $producto->IDProducto; ?>"><?php echo $producto->Producto; ?></a></td>
+
+                        <td><?php echo $producto->Fecha; ?></td>
                         <td><?php echo $producto->Especificaciones; ?></td>
-                        <td><?php echo $producto->Cantidad; ?></td>
+                        <td><?php echo $producto->Estado; ?></td>
                         <td><?php echo $producto->Precio; ?></td>
                     </tr>      
                 <?php } ?>

@@ -7,10 +7,10 @@ class AuthHelper {
         }
     }
 
-    public static function login($user) {
+    public static function login($usuario) {
         AuthHelper::init();//ya inicio session
-        $_SESSION['USER_ID'] = $user->id;
-        $_SESSION['USER_EMAIL'] = $user->email; 
+        $_SESSION['USER_ID'] = $usuario->id;
+        $_SESSION['USER_EMAIL'] = $usuario->email; 
     }
 
     public static function logout() {
