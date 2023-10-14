@@ -1,6 +1,6 @@
 <?php
 require_once './app/View/AuthView.php';
-require_once './app/Model/UserModel.php';
+require_once './app/Model/AuthModel.php';
 include_once './helpers/AuthHelpers.php';
     class authController {
         private $view;
@@ -10,7 +10,7 @@ include_once './helpers/AuthHelpers.php';
         {
             
             $this->view = new AuthView();
-            $this->model = new UserModel();
+            $this->model = new AuthModel();
         }
 
         function showLogin() {
@@ -22,26 +22,29 @@ include_once './helpers/AuthHelpers.php';
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            if (empty($email) || empty($password)){
-                $this->view->showLogin('Faltan completar campos');
+                
+            if (empty($email) || empty($password)) {
+                $this->view->showLogin('Faltan completar datos');
                 return;
             }
             $passwordHash = $password; // contraseña ingresada
             $hashedP = password_hash($passwordHash, PASSWORD_DEFAULT);
-
-            $usuario = $this->model->getEmail($email);
-            if ($usuario && password_verify($password, $usuario->password)) {
-                //ya esta encriptada??
-                AuthHelper::login($usuario);
-
-                header('Location: '. BASE_URL);
-            }
+            // busco el usuario
+            //joaco.r.hevia@gmail.com //password: admin
+            $user = $this->model->getEmail($email);
+            
+            if ($user && password_verify($password, $user->Password)) {
+                // ACA LO AUTENTIQUE
+                
+                AuthHelper::login($user);
+                
+                header('Location: ' . BASE_URL);
+            } 
             else {
-                $this->view->showLogin('Usuario invalido');
+                $this->view->showLogin('Usuario inválido');
             }
-        }
 
-        
+        }
 
         public function logout() {
             AuthHelper::logout();

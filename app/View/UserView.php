@@ -1,12 +1,17 @@
 <?php 
     class UserView {
 
-        function showtask($tasks) {
-            $count = count($tasks);
-            include_once 'templates/lista.phtml';
-        }
+       
 
         function addOrders() {
-            require_once 'templates/formAdd.php';
+            require_once 'templates/formAdd.phtml';
+        }
+
+        function showCategorias() {
+            require_once 'templates/form.Categorias.phtml';
+        }
+
+        function showError($error=null) {
+            require_once 'templates/Error.phtml';
         }
     }

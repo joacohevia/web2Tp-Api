@@ -4,29 +4,23 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Ciudad</th>
-                    <th>Telefono</th>
-                    <th>Producto</th>
-                    <th>Especificaciones</th>
-                    <th>Estado</th>
-                    <th>Fecha</th>
+                    <th>IDCategoria</th>
+                    <th>Tipo</th>
+                    <th>Talle</th>
                     <th>Precio</th>
+                    <th>Color</th>
+                    <th>Stock</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($ListT as $task) { ?>      
                     <tr>
-                        <td><?php echo $task->Nombre; ?></td>
-                        <td><?php echo $task->Apellido; ?></td>
-                        <td><?php echo $task->Ciudad; ?></td>
-                        <td><?php echo $task->Telefono; ?></td>
-                        <td><?php echo $task->Producto; ?></td>
-                        <td><?php echo $task->Especificaciones; ?></td>
-                        <td><?php echo $task->Estado; ?></td>
-                        <td><?php echo $task->Fecha; ?></td>
+                        <td><?php echo $task->IDProducto; ?></td>
+                        <td><?php echo $task->Tipo; ?></td>
+                        <td><?php echo $task->Talle; ?></td>
                         <td><?php echo $task->Precio; ?></td>
+                        <td><?php echo $task->Color; ?></td>
+                        <td><?php echo $task->Stock; ?></td>
                         <td><a href="listar" class="btn btn-primary">Volver</a></td>
                     </tr>      
                 <?php } ?>

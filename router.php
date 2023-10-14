@@ -1,6 +1,6 @@
 <?php
 require_once 'app/Controllers/TaskController.php';//usuarios
-require_once 'app/Controllers/AuthController.php';//ya ingresado
+require_once 'app/Controllers/AuthController.php';//login
 require_once 'app/Controllers/UserController.php';//lo que puede hacer el usuario
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -25,10 +25,7 @@ switch ($params[0]) {
         $controller = new taskController();
         $controller->allOrders($params[1]);
         break;
-    case 'categoria':
-        $controller = new taskController();
-        $controller->seeCategories();
-        break;
+    
     case 'categoriaId':
         $controller = new taskController();
         $controller->seachCategories($params[1]);
@@ -37,49 +34,38 @@ switch ($params[0]) {
 
     //usuario
     case 'agregar':
-        $controller = new userController();
+        $controller = new userController();//NUEVO
         $controller->addOrdersForm();
         break;
     case 'addItems':
         $controller = new userController();
-        $controller->addOrders();
+        $controller->addItem();
         break;
-    case 'eliminar':
-        $controller = new taskController();
-        $controller->removeOrders($params[1]);
+   
+    case 'formCategoria'://formulario para agregar cat NUEVO
+        $controller = new userController();
+        $controller->formCategorias();
         break;
-    case 'modificar':
-        $controller = new taskController();
-        $controller->modifyProducts();
+        //datos de form NUEVO
+    case 'addCategoria':
+        $controller = new userController();
+        $controller->addCategoria();
         break;
 
-        case 'agregarCat':
-            $controller = new taskController();
-            $controller->addCategories();
-            break;
-        case 'eliminarCat':
-            $controller = new taskController();
-            $controller->removeCategories($params[1]);
-            break;
-        case 'modificarCat':
-            $controller = new taskController();
-            $controller->modifyCategories();
-            break;
 
     case 'login':
-        $controller = new AuthController();
+        $controller = new authController();
         $controller->showLogin();
         break;
     case 'auth';
-        $controller = new AuthController();
+        $controller = new authController();
         $controller->auth();
         break;
     case 'logout':
-        $controller = new AuthController();
+        $controller = new authController();
         $controller->logout();
         break;
     default: 
         $controller = new taskController();
-        // esta bien? $controller->errorTask();
         break;
 }

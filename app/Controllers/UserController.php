@@ -17,31 +17,49 @@
             $this->view->addOrders();
         }
 
-        function addOrders() {
-            $nombre = $_POST['nombre'];
-            $apellido = $_POST['apellido'];
-            $ciudad = $_POST['ciudad'];
-            $correo = $_POST['correo'];
-            $telefono = $_POST['telefono'];
-            $estado = $_POST['estado'];
-            $fecha = $_POST['fecha'];
-            $especificaciones = $_POST['especificaciones'];
-            
-
+        function addItem() {
+            $categoria = $_POST['categoria'];
+            $tipo = $_POST['tipo'];
+            $talle = $_POST['talle'];
+            $precio = $_POST['precio'];
+            $color = $_POST['color'];
+            $stock = $_POST['stock'];
+           
         // validaciones
-        if (empty($title) || empty($priority)) {
-            $this->view->showError("Debe completar todos los campos");
-            return;
+            if (empty($categoria) || empty($tipo) || empty($talle) || empty($precio) || empty($color) || empty($stock)) {
+                $this->view->showError("Debe completar todos los campos");
+                return;
+            }
+
+            $id = $this->model->insertItem($categoria, $tipo, $talle, $precio, $color, $stock);
+            if ($id) {
+                header('Location: ' . BASE_URL);
+            } else {
+                $this->view->showError("Error al insertar la tarea");
+            }
         }
 
-        $id = $this->model->insertTask($title, $description, $priority);
-        if ($id) {
-            header('Location: ' . BASE_URL);
-        } else {
-            $this->view->showError("Error al insertar la tarea");
+        function formCategorias() {
+            $this->view->showCategorias();
         }
 
-            $this->model->addOrders();
+        function addCategoria() {
+            $nombre = $_POST['nombre'];
+            $ciudad = $_POST['ciudad'];
+            $direccion = $_POST['direccion'];
+            $fecha = $_POST['fecha'];
 
+            if (empty($nombre) || empty($ciudad) || empty($direccion) || empty($fecha)){
+                $this->view->showError("Debe completar todos los campos");
+                return;
+            }
+
+            $id = $this->model->insertCategoria($nombre, $ciudad, $direccion, $fecha);
+            if ($id) {
+                header('Location: ' . BASE_URL);//agregar a pagina de categorias
+            } else {
+                $this->view->showError("Error al insertar la tarea");
+            }
+            
         }
-    }
+}

@@ -1,5 +1,5 @@
 <?php
-//tabla usuarios
+//tabla producto
     class UserModel {
         private $db;
 
@@ -8,16 +8,23 @@
 
         }
 
-        function getTasks() {
-            $query = $this->db->prepare('SELECT * FROM producto');
-            $query->execute();
-            // $tasks es un arreglo de tareas
-            $tasks = $query->fetchAll(PDO::FETCH_OBJ);
-            //un arr de tareas y fetch un registro
-            return $tasks;//para que se pueda incluir 
+        function insertItem($categoria, $tipo, $talle, $precio, $color, $stock) {
+            $query = $this->db->prepare('INSERT INTO productos (Categoria, Tipo, Talle, Precio, Color, Stock) VALUES (?,?,?,?,?,?)');
+
+            $query->execute([$categoria, $tipo, $talle, $precio, $color, $stock]);
+            return $this->db->lastInsertId();
+        }
+
+        function insertCategoria($nombre, $ciudad, $direccion, $fecha) {
+            $query = $this->db->prepare('INSERT INTO pedidos (Nombre, Ciudad, Direccion, Fecha) VALUES (?,?,?,?)');
+            $query->execute([$nombre,$ciudad,$direccion,$fecha]);
+            return $this->db->lastInsertId();
         }
         
-        function addOrders() {
+        
+            
+        
+        /*function addOrders() {
             $query = $this->db->prepare('SELECT pedidos.EstadoPedido, pedidos.FechaEnvio, usuarios.*, productos.Especificaciones, productos.TipoProducto,productos.Cantidad, productos.Precio
             FROM `pedidos`
             INNER JOIN usuarios ON pedidos.IDUsuario = usuarios.IDUsuario
@@ -26,5 +33,5 @@
             $query->execute([$id]); // Usamos un array para pasar el parámetro
             $ListaT = $query->fetchAll(PDO::FETCH_OBJ);
             return $ListaT;
-        }
+        }*/
     }
