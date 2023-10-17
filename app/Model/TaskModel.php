@@ -1,14 +1,9 @@
 <?php
 //tabla productos
-    class taskModel {
+require_once 'app/Model/model.php'; 
+    class taskModel extends Model{
           //todas las funciones que conectan a la BD
         //private porque solo yo puedo acceder
-        private $db;
-
-        function __construct() {
-        $this->db = new PDO('mysql:host=localhost;dbname=db_web2;charset=utf8', 'root', '');
-
-        }  
 
         function getTasks() {
             $query = $this->db->prepare('SELECT * FROM productos');

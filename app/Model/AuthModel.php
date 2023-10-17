@@ -1,12 +1,7 @@
 <?php
+require_once 'app/Model/model.php'; 
 
-    class authModel {
-        private $db;
-
-        function __construct() {
-            $this->db = new PDO('mysql:host=localhost;dbname=db_web2;charset=utf8', 'root', '');
-    
-        }  
+    class authModel extends Model {
     
         function getEmail($email) {
             $query = $this->db->prepare('SELECT * FROM usuarios WHERE Correo = ?');

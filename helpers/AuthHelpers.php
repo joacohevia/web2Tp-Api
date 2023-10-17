@@ -6,7 +6,6 @@ class AuthHelper {
             session_start();//comprueba si esta activa,sino crea una nueva
         }
     }
-
     public static function login($user) {
         AuthHelper::init();//ya inicio session
         $_SESSION['USER_ID'] = $user->id;
@@ -24,5 +23,14 @@ class AuthHelper {
             header('Location: ' . BASE_URL . '/login');
             die();
         }
+    }
+
+    public static function isAdmin() {//verifica que el usuario este logueado para cualquier acceso a secciones que intente
+        AuthHelper::init();//ingresar, si se le conceden los permisos.
+        if (isset($_SESSION['USER_ID'])) {
+            return true;
+        }else{
+            return false;
+        }   
     }
 }

@@ -9,7 +9,6 @@
         private $view_P;//esto declara que el controlador siempre va a usar model y view
 
         function __construct() {
-             // verifico logueado
             $this->model_P = new taskModel();//dentro de model crea..
             $this->view_P = new taskView();
         }
@@ -28,7 +27,6 @@
 
        
         function seachCategories($id) {
-            
             $productos = $this->model_P->seachProductos($id);
 
             $this->view_P->seeProductos($productos);

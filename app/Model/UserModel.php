@@ -1,12 +1,9 @@
 <?php
 //tabla producto
-    class UserModel {
-        private $db;
+require_once 'app/Model/model.php'; 
 
-        function __construct() {
-        $this->db = new PDO('mysql:host=localhost;dbname=db_web2;charset=utf8', 'root', '');
-
-        }
+    class UserModel extends Model{
+      
 
         function insertItem($categoria, $tipo, $talle, $precio, $color, $stock) {
             $query = $this->db->prepare('INSERT INTO productos (Categoria, Tipo, Talle, Precio, Color, Stock) VALUES (?,?,?,?,?,?)');

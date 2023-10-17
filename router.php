@@ -1,5 +1,6 @@
 <?php
-require_once 'app/Controllers/TaskController.php';//usuarios
+require_once './config.php';
+require_once 'app/Controllers/TaskController.php';
 require_once 'app/Controllers/AuthController.php';//login
 require_once 'app/Controllers/UserController.php';//lo que puede hacer el usuario
 
@@ -21,50 +22,51 @@ switch ($params[0]) {
         $controller = new taskController();
         $controller->showOrders();
         break;
-    case 'listaTotal':
+    case 'listaTotal': 
         $controller = new taskController();
-        $controller->allOrders($params[1]);
+        $controller->allOrders($params[1]); 
         break;
+        //usuario
+        case 'agregar':
+            $controller = new userController();//NUEVO
+            $controller->addOrdersForm();
+            break;
+        case 'addItems':
+            $controller = new userController();
+            $controller->addItem();
+            break;
+        case 'formCategoria'://formulario para agregar cat NUEVO
+            $controller = new userController();
+            $controller->formCategorias();
+            break;
+            //datos de form NUEVO
+        case 'addCategoria':
+            $controller = new userController();
+            $controller->addCategoria();
+            break;
+            case 'login':
+                $controller = new authController();
+                $controller->showLogin();
+                break;
+            case 'auth';
+                $controller = new authController();
+                $controller->auth();
+                break;
+            case 'logout':
+                $controller = new authController();
+                $controller->logout();
+                break;
     
-    case 'categoriaId':
+
+//esto no
+    case 'categoria':
         $controller = new taskController();
         $controller->seachCategories($params[1]);
         break;
 
 
-    //usuario
-    case 'agregar':
-        $controller = new userController();//NUEVO
-        $controller->addOrdersForm();
-        break;
-    case 'addItems':
-        $controller = new userController();
-        $controller->addItem();
-        break;
-   
-    case 'formCategoria'://formulario para agregar cat NUEVO
-        $controller = new userController();
-        $controller->formCategorias();
-        break;
-        //datos de form NUEVO
-    case 'addCategoria':
-        $controller = new userController();
-        $controller->addCategoria();
-        break;
 
 
-    case 'login':
-        $controller = new authController();
-        $controller->showLogin();
-        break;
-    case 'auth';
-        $controller = new authController();
-        $controller->auth();
-        break;
-    case 'logout':
-        $controller = new authController();
-        $controller->logout();
-        break;
     default: 
         $controller = new taskController();
         break;

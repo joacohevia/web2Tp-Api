@@ -8,12 +8,13 @@ include_once './helpers/AuthHelpers.php';
 
         function __construct()
         {
-            
+
             $this->view = new AuthView();
             $this->model = new AuthModel();
         }
 
         function showLogin() {
+            
             $this->view->showLogin();
             //solo muestro el form por eso no va al model
         }
@@ -30,7 +31,7 @@ include_once './helpers/AuthHelpers.php';
             $passwordHash = $password; // contraseña ingresada
             $hashedP = password_hash($passwordHash, PASSWORD_DEFAULT);
             // busco el usuario
-            //joaco.r.hevia@gmail.com //password: admin
+            //admin@gmail.com //password: admin
             $user = $this->model->getEmail($email);
             
             if ($user && password_verify($password, $user->Password)) {
@@ -38,7 +39,7 @@ include_once './helpers/AuthHelpers.php';
                 
                 AuthHelper::login($user);
                 
-                header('Location: ' . BASE_URL);
+                header('Location: ' . BASE_URL . "listar");
             } 
             else {
                 $this->view->showLogin('Usuario inválido');

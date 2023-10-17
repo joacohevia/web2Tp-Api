@@ -1,7 +1,7 @@
 <?php
+    const MYSQL_USER = 'root';
+    const MYSQL_PASS = '';
+    const MYSQL_DB = 'db_web2';
+    const MYSQL_HOST = 'localhost';
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'db_web2');
 

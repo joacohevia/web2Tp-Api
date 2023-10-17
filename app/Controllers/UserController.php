@@ -8,16 +8,17 @@
 
         function __construct()
         {
-            
             $this->view = new UserView();
             $this->model = new UserModel();
         }
 
         function addOrdersForm() {
+            AuthHelper::verify();
             $this->view->addOrders();
         }
 
         function addItem() {
+            AuthHelper::verify();
             $categoria = $_POST['categoria'];
             $tipo = $_POST['tipo'];
             $talle = $_POST['talle'];
@@ -40,10 +41,12 @@
         }
 
         function formCategorias() {
+            AuthHelper::verify();
             $this->view->showCategorias();
         }
 
         function addCategoria() {
+            AuthHelper::verify();//verifica si esta logueado
             $nombre = $_POST['nombre'];
             $ciudad = $_POST['ciudad'];
             $direccion = $_POST['direccion'];
