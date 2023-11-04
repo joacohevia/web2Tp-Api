@@ -1,0 +1,50 @@
+<?php 
+    require_once 'templates/pag/header.phtml';  
+    ?>
+<div class="container">
+    <h2>Modificar Producto</h2>
+    <form action="itemsMod" method="POST">
+        <div class="form-row col-md-6">
+            <div class="mb-1">
+            <select class="form-select" id="IDCategoria" name="IDCategoria">
+                <?php foreach($categDisp as $cat): ?>
+                    <option value="<?= $cat->IDCategoria; ?>"><?= $cat->Categoria; ?></option>
+                <?php endforeach; ?>
+            </select>
+            </div>
+            <div class="form-group col-md-6">
+                <input type="hidden" class="form-control" id="IDProducto" name="IDProducto" value="<?= $items[0]->IDProducto; ?>" required>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="Tipo">Tipo:</label>
+                <input type="text" class="form-control" id="Tipo" name="Tipo" value="<?= $items[0]->Tipo; ?>" required>
+            </div>
+
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="Talle">Talle:</label>
+                <input type="text" class="form-control" id="Talle" name="Talle" value="<?= $items[0]->Talle; ?>" required>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="Precio">Precio:</label>
+                <input type="number" class="form-control" id="Precio" name="Precio" value="<?= $items[0]->Precio; ?>" required>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="Color">Color:</label>
+                <input type="text" class="form-control" id="Color" name="Color" value="<?= $items[0]->Color; ?>" required>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="Stock">Stock:</label>
+                <input type="text" class="form-control" id="Stock" name="Stock" value="<?= $items[0]->Stock; ?>" required>
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Modificar</button>
+    </form>
+</div>
+</body>
+</html>

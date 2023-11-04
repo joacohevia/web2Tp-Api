@@ -1,0 +1,32 @@
+<?php
+        require 'templates/pag/header.phtml';        
+        ?>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">Categoria</th>
+                    <th class="text-center">Tipo</th>
+                    <th class="text-center">Talle</th>
+                    <th class="text-center">Precio</th>
+                    <th class="text-center">Color</th>
+                    <th class="text-center">Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($categId as $cat) { ?>      
+                    <tr>
+                        <td class="text-center"><?php echo $cat->Categoria; ?></td>
+                        <td class="text-center"><?php echo $cat->Tipo; ?></td>
+                        <td class="text-center"><?php echo $cat->Talle; ?></td>
+                        <td class="text-center"><?php echo $cat->Precio; ?></td>
+                        <td class="text-center"><?php echo $cat->Color; ?></td>
+                        <td class="text-center"><?php echo $cat->Stock; ?></td>
+                        <td class="text-center"><a href="categorias/" class="btn btn-primary">Volver</a>
+                        </td>
+                    </tr>      
+                <?php } ?>
+            </tbody>
+        </table>
+        <?php
+        require 'templates/pag/footer.phtml';
+    

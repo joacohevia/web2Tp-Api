@@ -24,27 +24,27 @@
                     <a class="nav-link" href="listar">Listado <span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="categoria">Categorias</a>
+                    <a class="nav-link" href="categorias">Categorias</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="login">Login</a>
                 </li>
           <?php else : ?>
-          <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="logout">Logout (<?= $_SESSION['USER_EMAIL'] ?>)</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="agregar">Agregar items</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="list">Gestion items</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="formCategoria">Agregar categorias</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="category">Gestion categorias</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="listar">Gestion items</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="formItems">Agregar items</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categorias">Gestion categorias</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="formCategoria">Agregar categorias</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link custom-color text-danger" aria-current="page"  href="logout">Logout (<?= $_SESSION['USER_EMAIL'] ?>)</a>
+            </li>
         <?php endif ?>
       </ul>
     </div>

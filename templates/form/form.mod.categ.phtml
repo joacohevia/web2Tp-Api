@@ -1,0 +1,29 @@
+<?php
+   require './templates/pag/header.phtml';?>
+    <div class="container">
+        <h2>Modificar Categoria</h2>
+        <form action="CategMod" method="POST">
+            <div class="form-row col-md-6">
+                <div class="form-group col-md-6">
+                    <input type="hidden" class="form-control" id="IDCategoria" name="IDCategoria" value="<?=$categoria[0]->IDCategoria?>">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Descripcion" class="form-label">Descripcion:</label>
+                    <input type="text" class="form-control" id="Descripcion" name="Descripcion" value="<?=$categoria[0]->Descripcion;?>"required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Marca" class="form-label">Marca:</label>
+                    <input type="text" class="form-control" id="Marca" name="Marca" value="<?=$categoria[0]->Marca;?>"required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Material" class="form-label">Material:</label>
+                    <input type="text" class="form-control" id="Material" name="Material" value="<?=$categoria[0]->Material;?>"required>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Modificar</button>
+        </form>
+    </div>
+    <?php
+
+    require_once 'templates/pag/footer.phtml'; 

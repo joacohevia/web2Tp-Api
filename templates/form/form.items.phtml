@@ -1,0 +1,45 @@
+<?php 
+    require_once 'templates/pag/header.phtml';  
+    ?>
+<div class="container">
+    <h2>Agregar un Producto</h2>
+    <form action="insertItems" method="POST">
+        <div class="form-row col-md-6">
+            <div class="mb-1">
+            <select class="form-select" id="IDCategoria" name="IDCategoria">
+                <?php foreach($categDisp as $cat): ?>
+                    <option value="<?= $cat->IDCategoria; ?>"><?= $cat->Categoria; ?></option>
+                <?php endforeach; ?>
+            </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Tipo">Tipo:</label>
+                <input type="text" class="form-control" id="Tipo" name="Tipo">
+            </div>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="Talle">Talle:</label>
+                <input type="text" class="form-control" id="Talle" name="Talle">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Precio">Precio:</label>
+                <input type="number" class="form-control" id="Precio" name="Precio">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Color">Color:</label>
+                <input type="text" class="form-control" id="Color" name="Color">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Stock">Stock:</label>
+                <input type="text" class="form-control" id="Stock" name="Stock">
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Agregar</button>
+    </form>
+</div>
+</body>
+</html>
+<?php 
+    require_once 'templates/pag/footer.phtml';  
+    ?>

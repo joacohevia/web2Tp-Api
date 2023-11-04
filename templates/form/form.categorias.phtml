@@ -1,0 +1,35 @@
+<?php 
+    require_once 'templates/pag/header.phtml';  
+    ?>
+<div class="container">
+    <h2>Agregar una categoria</h2>
+    <form action="insertCateg" method="POST">
+        <div class="form-row col-md-6">
+            <div class="form-group col-md-6">
+                <label for="Categoria">Categoria:</label>
+                <input required type="text" class="form-control" id="Categoria" name="Categoria">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="Descripcion">Descripcion:</label>
+                <input required type="text" class="form-control" id="Descripcion" name="Descripcion">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="Marca">Marca:</label>
+                <input required type="text" class="form-control" id="Marca" name="Marca">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="Material">Material:</label>
+                <input required type="text" class="form-control" id="Material" name="Material">
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Agregar</button>
+    </form>
+</div>
+</body>
+</html>
+<?php 
+    require_once 'templates/pag/footer.phtml';  ?>

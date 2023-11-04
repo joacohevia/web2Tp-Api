@@ -1,0 +1,33 @@
+<?php
+        require 'templates/pag/header.phtml';        
+        ?>    
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">IDProducto</th>
+                    <th class="text-center">Tipo</th>
+                    <th class="text-center">Talle</th>
+                    <th class="text-center">Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($productos as $task) { ?>      
+                    <tr>
+                        <td class="text-center"><?php echo $task->IDProducto; ?></td>
+                        <td class="text-center"><?php echo $task->Tipo; ?></td>
+                        <td class="text-center"><?php echo $task->Talle; ?></td>
+                        <td class="text-center"><?php echo $task->Precio; ?></td>
+                        <td class="text-center"><a href="listaTotal/<?php echo $task->IDProducto; ?>" class="btn btn-primary">Ver mas</a>
+                        <?php if ($admin) { ?>
+                            <a href="borrarItem/<?= $task->IDProducto; ?>" type="button" class='btn btn-danger ml-auto'>Eliminar</a>
+                            <a href="formMod/<?= $task->IDProducto; ?>" type="button" class='btn btn-success ml-auto'>Modificar</a>
+                        <?php } ?>
+                        </td>
+                    </tr>      
+                <?php } ?>
+            </tbody>
+        </table>
+
+        <?php
+        require 'templates/pag/footer.phtml';
+    
