@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 30-10-2023 a las 16:12:23
+-- Tiempo de generación: 10-11-2023 a las 19:20:51
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `db_web2`
+-- Base de datos: `web2`
 --
 
 -- --------------------------------------------------------
@@ -42,7 +42,8 @@ CREATE TABLE `categorias` (
 INSERT INTO `categorias` (`IDCategoria`, `Categoria`, `Descripcion`, `Marca`, `Material`) VALUES
 (18, 'Remera', 'Remera corte en V', 'Open sport', 'Algodon'),
 (19, 'Buzo', 'Buzo canguro', 'Treap', 'Friza'),
-(20, 'Campera', 'Campera inflada', 'Topper', '-');
+(20, 'Campera', 'Campera inflada', 'Treap', '-'),
+(21, 'Pantalon', 'Pantalon de invierno', 'Pampero', 'Anti-desgarro');
 
 -- --------------------------------------------------------
 
@@ -65,8 +66,10 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`IDProducto`, `IDCategoria`, `Tipo`, `Talle`, `Precio`, `Color`, `Stock`) VALUES
-(15, 18, 'Verano', 'M', 100000, 'Blanco', 'No'),
-(16, 20, 'Invierno', 'L', 300000, 'Negro', 'Si');
+(15, 18, 'Remera Verano', 'M', 6500, 'Blanco', 'No'),
+(16, 20, 'Campera Invierno', 'L', 25000, 'Negro', 'Si'),
+(17, 19, 'Buzo invierno', 'XL', 15500, 'Blanco', 'Si'),
+(18, 21, 'Pantalon Trabajo', 'XL', 31000, 'Marron', 'Si');
 
 -- --------------------------------------------------------
 
@@ -118,13 +121,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `IDCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `IDCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `IDProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `IDProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
